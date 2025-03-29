@@ -13,7 +13,7 @@ const app = express();
 app.use(express.json());
 app.use(cors());
 
-mongoose.connect("mongodb+srv://mulanidhiprasad568:08LE1tqeCJZSFZjA@cluster0.lfujhmv.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0", {
+mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost:27017/referralDB", {
     useNewUrlParser: true,
     useUnifiedTopology: true,
   })
@@ -60,7 +60,7 @@ const User = mongoose.model("User", userSchema);
   
 // Generate JWT Token
 const generateToken = (id) => {
-  return jwt.sign({ id }, "3a7d5f891b6c2e4f9a8b3c6d5e7f2a1b4c9d8e3f6a5b2c7d9e1f4a8b3c6d5e7f", { expiresIn: "7d" });
+  return jwt.sign({ id }, process.env.JWT_SECRET || "fallback_secret_key",  { expiresIn: "7d" });
 };
 
 
