@@ -13,7 +13,7 @@ const app = express();
 app.use(express.json());
 app.use(cors());
 
-mongoose.connect(process.env.MONGO_URI, {
+mongoose.connect("mongodb+srv://mulanidhiprasad568:08LE1tqeCJZSFZjA@cluster0.lfujhmv.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0", {
     useNewUrlParser: true,
     useUnifiedTopology: true,
   })
@@ -172,7 +172,7 @@ app.post("/admin/login", (req, res) => {
 
 // Admin Name Endpoint
 app.get("/admin/name", (req, res) => {
-  res.json({ name: "Mahesh Doe", message: "Login successful" });
+  res.json({ name: "Mahesh Doe", message: "task@gmail.com" });
 });
 
 // Create Campaign & Send Emails
