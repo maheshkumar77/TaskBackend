@@ -13,7 +13,7 @@ const app = express();
 app.use(express.json());
 app.use(cors());
 
-mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost:27017/referralDB", {
+mongoose.connect(process.env.MONGO_URI, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
   })
@@ -60,7 +60,7 @@ const User = mongoose.model("User", userSchema);
   
 // Generate JWT Token
 const generateToken = (id) => {
-  return jwt.sign({ id }, process.env.JWT_SECRET || "fallback_secret_key",  { expiresIn: "7d" });
+  return jwt.sign({ id }, process.env.JWT_SECRET ,  { expiresIn: "7d" });
 };
 
 
