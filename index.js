@@ -60,7 +60,7 @@ const User = mongoose.model("User", userSchema);
   
 // Generate JWT Token
 const generateToken = (id) => {
-  return jwt.sign({ id }, process.env.JWT_SECRET, { expiresIn: "7d" });
+  return jwt.sign({ id }, "3a7d5f891b6c2e4f9a8b3c6d5e7f2a1b4c9d8e3f6a5b2c7d9e1f4a8b3c6d5e7f", { expiresIn: "7d" });
 };
 
 
